@@ -20,7 +20,24 @@ file = open(api_file,"r")
 for api in file:
     api = api.strip()
     url_full = url + api
-    print(url_full)
+    
+    #GETS
+    print("GET "+ url_full)
     r = requests.get(url_full, auth=HTTPBasicAuth('<username>','<password>'))
+    print(r.status_code)
+    
+    #POSTS
+    print("POST "+ url_full)
+    r = requests.post(url_full, auth=HTTPBasicAuth('<username>','<password>'))
+    print(r.status_code)
+    
+    #PUTS
+    print("PUT "+ url_full)
+    r = requests.put(url_full, auth=HTTPBasicAuth('<username>','<password>'))
+    print(r.status_code)
+    
+    #PATCHES
+    print("PATCH "+ url_full)
+    r = requests.patch(url_full, auth=HTTPBasicAuth('<username>','<password>'))
     print(r.status_code)
 
